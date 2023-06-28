@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "send:stream-csv": "node src/streams/stream-csv.js"
   },
   "keywords": [],
   "author": "",
