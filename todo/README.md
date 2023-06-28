@@ -38,7 +38,6 @@ This challenge is about to create CRUD API to tasks.
 
     http://localhost:3333/tasks
   ```json
-  // request
   {
     "title": "string",
     "description": "string"
@@ -49,7 +48,6 @@ This challenge is about to create CRUD API to tasks.
 
     http://localhost:3333/tasks/91d2732d-a370-4a15-bf79-0d98b237a84
   ```json
-  // request (title only or description only or both)
   {
     "title": "string",
     "description": "string"
