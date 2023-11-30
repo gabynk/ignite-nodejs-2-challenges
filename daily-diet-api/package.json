@@ -1,0 +1,19 @@
+{
+  "name": "daily-diet-api",
+  "version": "1.0.0",
+  "description": "- Deve ser possível criar um usuário - Deve ser possível identificar o usuário entre as requisições - Deve ser possível registrar uma refeição feita, com as seguintes informações:",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.24.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.6.1",
+    "typescript": "^5.3.2"
+  }
+}
