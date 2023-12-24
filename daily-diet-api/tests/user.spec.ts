@@ -25,12 +25,33 @@ describe('User routes', () => {
         email: 'test@test.com',
         password: '123456',
       })
-    
+
     expect(createdUser.body.user).toEqual(
       expect.objectContaining({
+        id: createdUser.body.user?.id as string,
         name: 'User test',
         email: 'test@test.com',
       }),
     )
+  })
+
+  it('should be return an error when try to create an existing user', async () => {
+    await request(app.server)
+      .post('/user')
+      .send({
+        name: 'User test',
+        email: 'test@test.com',
+        password: '123456',
+      })
+
+    const existUser = await request(app.server)
+      .post('/user')
+      .send({
+        name: 'User test',
+        email: 'test@test.com',
+        password: '123456',
+      })
+
+    expect(existUser.statusCode).toBe(400);
   })
 })

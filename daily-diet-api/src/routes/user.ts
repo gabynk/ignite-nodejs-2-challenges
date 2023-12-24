@@ -16,7 +16,7 @@ export async function userRoutes(app: FastifyInstance) {
     const isAlreadyExistUser = await knex('users').where('email', email).first()
 
     if (isAlreadyExistUser) {
-      return reply.status(401).send()
+      return reply.status(400).send()
     }
 
     const passwordHash = await hash(password, 10);
