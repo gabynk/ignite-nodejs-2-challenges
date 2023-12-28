@@ -1,6 +1,5 @@
-import { it, beforeAll, afterAll, describe, expect, beforeEach } from 'vitest'
+import { it, beforeAll, afterAll, describe, expect } from 'vitest'
 import request from 'supertest'
-import { execSync } from 'child_process'
 import { app } from '../src/app'
 
 describe('Authenticate routes', () => {
@@ -12,23 +11,18 @@ describe('Authenticate routes', () => {
     await app.close()
   })
 
-  beforeEach(() => {
-    execSync('npm run knex migrate:rollback --all')
-    execSync('npm run knex migrate:latest')
-  })
-
   it('should be able to authenticate', async () => {
     await request(app.server)
       .post('/user')
       .send({
-        name: 'User test',
-        email: 'test@test.com',
+        name: 'Auth test',
+        email: 'auth@test.com',
         password: '123456',
       })
     const authUser = await request(app.server)
       .post('/auth')
       .send({
-        email: 'test@test.com',
+        email: 'auth@test.com',
         password: '123456',
       })
 

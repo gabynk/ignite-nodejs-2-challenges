@@ -1,6 +1,5 @@
-import { it, beforeAll, afterAll, describe, expect, beforeEach } from 'vitest'
+import { it, beforeAll, afterAll, describe, expect } from 'vitest'
 import request from 'supertest'
-import { execSync } from 'child_process'
 import { app } from '../src/app'
 
 describe('User routes', () => {
@@ -10,11 +9,6 @@ describe('User routes', () => {
 
   afterAll(async () => {
     await app.close()
-  })
-
-  beforeEach(() => {
-    execSync('npm run knex migrate:rollback --all')
-    execSync('npm run knex migrate:latest')
   })
 
   it('should be able to create a new user', async () => {
@@ -28,7 +22,6 @@ describe('User routes', () => {
 
     expect(createdUser.body.user).toEqual(
       expect.objectContaining({
-        id: createdUser.body.user?.id as string,
         name: 'User test',
         email: 'test@test.com',
       }),
@@ -39,16 +32,16 @@ describe('User routes', () => {
     await request(app.server)
       .post('/user')
       .send({
-        name: 'User test',
-        email: 'test@test.com',
+        name: 'Exist user test',
+        email: 'exist-user@test.com',
         password: '123456',
       })
 
     const existUser = await request(app.server)
       .post('/user')
       .send({
-        name: 'User test',
-        email: 'test@test.com',
+        name: 'Exist user test',
+        email: 'exist-user@test.com',
         password: '123456',
       })
 
