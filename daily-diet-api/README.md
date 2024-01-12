@@ -1,10 +1,61 @@
-### Regras da aplicação
+# Daily Diet API
 
-## User
+## ✨💡 Functionalities 💡✨
+
+<br>
+
+This is a project about a challenge on [Rocketseat](https://www.rocketseat.com.br/). <br>
+
+This challenge is about to controller your meals, using user account.
+
+<br><br>
+
+## 🚗 REST API 🚗
+
+<br>
+
+| HTTP | Endpoints | Action |
+| --- | --- | --- |
+| POST | /user | to create new user account |
+| POST | /auth | to login |
+| POST | /meals | create a meal |
+| GET | /meals | to list all user meals |
+| GET | /meals/id | to list a meal |
+| PATCH | /meals/id | to update a meal |
+| DELETE | /meals/id | to delete a meal |
+| GET | /meals/metrics | to get user metrics |
+
+<br><br>
+## 🛠️ Tecnology 🛠️
+
+<br>
+
+- [Nodejs](https://nodejs.org/en)
+- [Fastify](https://fastify.dev/)
+- [Knexjs](https://knexjs.org/)
+
+<br><br>
+
+## 🎲 Getting started 🎲
+
+<br>
+
+```bash
+npm install
+
+# server
+npm run dev
+```
+
+<br><br>
+
+## Regras da aplicação
+
+### User
 - [X] Deve ser possível criar um usuário
 - [X] Deve ser possível identificar o usuário entre as requisições
 
-## Meal
+### Meal
 - [X] Deve ser possível registrar uma refeição feita, com as seguintes informações:
     *As refeições devem ser relacionadas a um usuário.*
   - Nome
@@ -22,4 +73,11 @@
   - Melhor sequência de refeições dentro da dieta
 - [X] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou
 
-[FIGMA](https://www.figma.com/file/BftfaMiXSuIP2MI09OfQnC/Daily-Diet-%E2%80%A2-Desafio-React-Native-(Community)?type=design&node-id=0-1&mode=design&t=as6zUzUdxuroymTE-0)
+<br><br>
+
+## Desafio extra
+- [X] Criação dos testes
+
+<br><br><br>
+
+<p align="center">Developed with 💜 by Gabriele Nakassima </p>
