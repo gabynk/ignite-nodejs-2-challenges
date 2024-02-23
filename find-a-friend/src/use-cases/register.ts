@@ -17,27 +17,4 @@ export async function registerUseCase({
   cep,
   address,
   phone,
-}: RegisterUseCaseRequest) {
-  const password_hash = await hash(password, 6)
-
-  const corporationWithSameEmail = await prisma.corporation.findUnique({
-    where: {
-      email,
-    },
-  })
-
-  if (corporationWithSameEmail) {
-    throw new Error('E-mail already exists.')
-  }
-
-  await prisma.corporation.create({
-    data: {
-      name,
-      email,
-      cep,
-      address,
-      phone,
-      password: password_hash,
-    },
-  })
-}
+}: RegisterUseCaseRequest) {}

@@ -10,7 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Corporation {
+model Pet {
+  id           String   @id @default(uuid())
+  name         String
+  description  String
+  age          Decimal
+  energy       Decimal
+  port         String
+  dependency   String
+  ambient      String
+  requirements String
+  created_at   DateTime @default(now())
+
+  institution    Institution @relation(fields: [institution_id], references: [id])
+  institution_id String
+
+  @@map("pets")
+}
+
+model Institution {
   id         String   @id @default(uuid())
   name       String
   email      String   @unique
@@ -20,5 +38,7 @@ model Corporation {
   phone      String
   created_at DateTime @default(now())
 
-  @@map("corporations")
+  pets Pet[]
+
+  @@map("institutions")
 }
