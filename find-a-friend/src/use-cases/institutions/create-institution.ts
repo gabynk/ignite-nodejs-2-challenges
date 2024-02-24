@@ -1,4 +1,6 @@
 import { InstitutionRepository } from '@/repositories/institution-repository'
+import { InstitutionAlreadyExistsError } from '../errors/institution-already-exists-error'
+import { hash } from 'bcryptjs'
 
 interface CreateInstitutionUseCaseRequest {
   name: string
@@ -20,10 +22,19 @@ export class CreateInstitutionUseCase {
     address,
     phone,
   }: CreateInstitutionUseCaseRequest) {
+    const password_hash = await hash(password, 6)
+
+    const userWithSameEmail =
+      await this.institutionRepository.findByEmail(email)
+
+    if (userWithSameEmail) {
+      throw new InstitutionAlreadyExistsError()
+    }
+
     const institution = await this.institutionRepository.create({
       name,
       email,
-      password,
+      password: password_hash,
       cep,
       address,
       phone,

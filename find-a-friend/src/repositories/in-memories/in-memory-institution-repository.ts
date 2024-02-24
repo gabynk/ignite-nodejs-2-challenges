@@ -5,6 +5,15 @@ import { InstitutionRepository } from '../institution-repository'
 export class InMemoryInstitutionRepository implements InstitutionRepository {
   public items: Institution[] = []
 
+  async findByEmail(email: string) {
+    const institution = this.items.find((item) => item.email === email)
+
+    if (!institution) {
+      return null
+    }
+    return institution
+  }
+
   async create(data: Prisma.InstitutionCreateInput) {
     const institution = {
       id: randomUUID(),
