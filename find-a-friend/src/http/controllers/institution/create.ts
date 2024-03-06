@@ -1,5 +1,5 @@
 import { InstitutionAlreadyExistsError } from '@/use-cases/errors/institution-already-exists-error'
-import { MakeCreateInstitutionUseCase } from '@/use-cases/institutions/factory/make-create-institution'
+import { MakeCreateInstitutionUseCase } from '@/use-cases/factory/make-create-institution'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
