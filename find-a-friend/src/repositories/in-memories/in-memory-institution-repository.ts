@@ -14,6 +14,15 @@ export class InMemoryInstitutionRepository implements InstitutionRepository {
     return institution
   }
 
+  async findById(id: string) {
+    const institution = this.items.find((item) => item.id === id)
+
+    if (!institution) {
+      return null
+    }
+    return institution
+  }
+
   async create(data: Prisma.InstitutionCreateInput) {
     const institution = {
       id: randomUUID(),

@@ -13,6 +13,16 @@ export class PrismaInstitutionRepository implements InstitutionRepository {
     return user
   }
 
+  async findById(id: string) {
+    const user = await prisma.institution.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    return user
+  }
+
   async create(data: Prisma.InstitutionCreateInput) {
     const user = await prisma.institution.create({
       data,

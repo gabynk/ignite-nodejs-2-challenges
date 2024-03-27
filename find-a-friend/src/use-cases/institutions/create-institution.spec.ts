@@ -8,7 +8,7 @@ import { InstitutionAlreadyExistsError } from '../errors/institution-already-exi
 let institutionRepository: InstitutionRepository
 let createInstitutionUseCase: CreateInstitutionUseCase
 
-describe('Register Use Case', () => {
+describe('Create Institution Use Case', () => {
   beforeEach(() => {
     institutionRepository = new InMemoryInstitutionRepository()
     createInstitutionUseCase = new CreateInstitutionUseCase(
