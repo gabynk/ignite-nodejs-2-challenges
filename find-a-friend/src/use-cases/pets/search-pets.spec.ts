@@ -16,7 +16,7 @@ describe('Search Pets Use Case', () => {
     sut = new SearchPetsUseCase(petRepository)
   })
 
-  it('Should be able to create', async () => {
+  it('Should be able to search pets', async () => {
     const institution = await institutionRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',

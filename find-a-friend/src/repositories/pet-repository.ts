@@ -13,5 +13,6 @@ export interface PetRepository {
     page: number,
     query: SearchManyByCepQuery,
   ): Promise<Pet[]>
+  findById(id: string): Promise<Pet | null>
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
 }

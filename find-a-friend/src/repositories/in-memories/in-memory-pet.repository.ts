@@ -18,6 +18,15 @@ export class InMemoryPetRepository implements PetRepository {
       .slice((page - 1) * 20, page * 20)
   }
 
+  async findById(id: string) {
+    const pet = this.items.find((item) => item.id === id)
+
+    if (!pet) {
+      return null
+    }
+    return pet
+  }
+
   async create(data: Prisma.PetUncheckedCreateInput) {
     const pet = {
       id: randomUUID(),

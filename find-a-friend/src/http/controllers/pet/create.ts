@@ -29,7 +29,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   try {
     const createPetUseCase = MakeCreatePetUseCase()
 
-    await createPetUseCase.execute({
+    const { pet } = await createPetUseCase.execute({
       name,
       description,
       age,
@@ -40,6 +40,10 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
       requirements,
       institutionId: request.user.sub,
     })
+
+    return reply.status(201).send({
+      pet,
+    })
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {
       return reply.status(409).send({
@@ -49,6 +53,4 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
 
     throw err
   }
-
-  return reply.status(201).send()
 }
