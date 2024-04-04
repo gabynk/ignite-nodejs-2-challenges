@@ -28,7 +28,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
 
   try {
     const createPetUseCase = MakeCreatePetUseCase()
-    // console.log(request)
+
     await createPetUseCase.execute({
       name,
       description,

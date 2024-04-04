@@ -39,6 +39,7 @@ export class CreatePetUseCase {
 
     const pet = await this.petRepository.create({
       name,
+      cep: institution.cep,
       description,
       age,
       energy,

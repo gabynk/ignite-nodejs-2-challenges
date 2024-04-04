@@ -13,6 +13,7 @@ datasource db {
 model Pet {
   id           String   @id @default(uuid())
   name         String
+  cep          String
   description  String
   age          Decimal
   energy       Decimal

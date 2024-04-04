@@ -4,30 +4,30 @@ import { InstitutionRepository } from '../institution-repository'
 
 export class PrismaInstitutionRepository implements InstitutionRepository {
   async findByEmail(email: string) {
-    const user = await prisma.institution.findUnique({
+    const institution = await prisma.institution.findUnique({
       where: {
         email,
       },
     })
 
-    return user
+    return institution
   }
 
   async findById(id: string) {
-    const user = await prisma.institution.findUnique({
+    const institution = await prisma.institution.findUnique({
       where: {
         id,
       },
     })
 
-    return user
+    return institution
   }
 
   async create(data: Prisma.InstitutionCreateInput) {
-    const user = await prisma.institution.create({
+    const institution = await prisma.institution.create({
       data,
     })
 
-    return user
+    return institution
   }
 }

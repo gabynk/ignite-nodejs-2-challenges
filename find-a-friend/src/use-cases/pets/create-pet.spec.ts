@@ -19,7 +19,7 @@ describe('Create Pets Use Case', () => {
 
   it('Should be able to create', async () => {
     const institution = await institutionRepository.create({
-      id: 'gym-id',
+      id: 'id-1',
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
